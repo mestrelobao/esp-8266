@@ -24,9 +24,9 @@ void loop()
   playMIDINote(1, 71, 100);
   playMIDINote(1, 74, 100);
 
-        //Hold note for 60 ms (delay() used for simplicity)
+        //Hold note for 4 seconds
 
-        delay(60);
+        delay(4000);
 
         
 
@@ -37,9 +37,9 @@ void loop()
   playMIDINote(1, 71, 0);
   playMIDINote(1, 74, 0);
 
-        //Pause for 60 ms
+        //Pause for 4 seconds
 
-        delay(60);
+    //delay(4000);
   
  //Play a D7M chord
   
@@ -48,9 +48,9 @@ void loop()
   playMIDINote(1, 73, 100);
   playMIDINote(1, 77, 100);
 
-        //Hold note for 60 ms (delay() used for simplicity)
+        //Hold note for 4 seconds
 
-        delay(60);
+        delay(4000);
 
         
 
@@ -61,9 +61,9 @@ void loop()
   playMIDINote(1, 73, 0);
   playMIDINote(1, 79, 0);
 
-        //Pause for 60 ms
+        //Pause for 4 seconds ms
 
-        delay(60);
+      //  delay(4000);
 }
 
 
