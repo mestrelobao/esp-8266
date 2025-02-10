@@ -1,4 +1,4 @@
-#define BUTTON_PIN 4
+#define BUTTON_PIN 16 // D0
 #define DEBOUNCE_TIME 50
 
 int lastSteadyState = LOW;
