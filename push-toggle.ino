@@ -26,7 +26,7 @@ lastFlickerableState = currentState;
 if ((millis() - lastDebounceTime) > DEBOUNCE_TIME) {
 
 ledState = !ledState;
-digitalWrite(LEDBUILTIN, ledState);
+digitalWrite(LED_BUILTIN, ledState);
   
 //if(lastSteadyState == HIGH && currentState == LOW)
 //digitalWrite(LED_BUILTIN, HIGH);
