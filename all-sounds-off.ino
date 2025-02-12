@@ -21,11 +21,8 @@ void loop()
     
 //Turn chord off (velocity = 0)
 
-  playMIDINote(1, 62, 0);
-  playMIDINote(1, 69, 0);
-  playMIDINote(1, 73, 0);
-  playMIDINote(1, 78, 0);
-    
+  allsoundoff(1, 120, 0);
+      
 //Play a G7M chord
 
   playMIDINote(1, 55, 100);
@@ -52,6 +49,24 @@ void playMIDINote(byte channel, byte note, byte velocity)
     //MIDI channels 1-16 are really 0-15
 
     byte noteOnStatus=0x90 + (channel-1);  
+
+    
+    //Send notes to MIDI output:
+
+    Serial.write(noteOnStatus);
+
+    Serial.write(note);
+
+    Serial.write(velocity);
+
+}
+void allsoundoff(byte channel, byte note, byte velocity)
+
+{
+
+    //MIDI channels 1-16 are really 0-15
+
+    byte noteOnStatus=0xB0 + (channel-1);  
 
     
     //Send notes to MIDI output:
