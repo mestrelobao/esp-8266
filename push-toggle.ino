@@ -28,7 +28,7 @@ void loop(){
 
 
 
-if (digitalRead(button) == LOW) { /
+if (digitalRead(button) == LOW) { 
 
 status = !status;
 
