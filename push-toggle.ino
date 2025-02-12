@@ -1,38 +1,19 @@
-#define BUTTON_PIN 16 // D0
-#define DEBOUNCE_TIME 50
+int button = 0;//D3
+int led = 16;
+int status = false;
 
-int lastSteadyState = LOW;
-int lastFlickerableState = LOW;
-int currentState;
-unsigned long lastDebounceTime = 0;
-int ledState = LOW;
-
-
-void setup() {
-  // put your setup code here, to run once:
-pinMode(BUTTON_PIN, INPUT_PULLUP);
-pinMode(LED_BUILTIN, OUTPUT);
+void setup(){
+pinMode(led, OUTPUT);
+pinMode(button, INPUT_PULLUP); // set the internal pull up resistor, unpressed button is HIGH
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-currentState = digitalRead(BUTTON_PIN);
-if (currentState != lastFlickerableState) {
+void loop(){
+//a) if the button is not pressed the false status is reversed by !status and the LED turns on
+//b) if the button is pressed the true status is reveresed by !status and the LED turns off
 
-lastDebounceTime = millis();
-lastFlickerableState = currentState;
-}
-
-if ((millis() - lastDebounceTime) > DEBOUNCE_TIME) {
-
-ledState = !ledState;
-digitalWrite(LED_BUILTIN, ledState);
-  
-//if(lastSteadyState == HIGH && currentState == LOW)
-//digitalWrite(LED_BUILTIN, HIGH);
-//else if (lastSteadyState == LOW && currentState == HIGH)
-//digitalWrite(LED_BUILTIN, LOW); 
-//lastSteadyState = currentState;
-  
-}
+if (digitalRead(button) == true) {
+status = !status;
+digitalWrite(led, status);
+} while(digitalRead(button) == true);
+delay(50); // keeps a small delay
 }
