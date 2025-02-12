@@ -1,4 +1,4 @@
-#define BUTTON_PIN 16 // D0
+#define BUTTON_PIN 0 // D3
 #define DEBOUNCE_TIME 50
 
 int lastSteadyState = LOW;
@@ -23,9 +23,9 @@ lastFlickerableState = currentState;
 
 if ((millis() - lastDebounceTime) > DEBOUNCE_TIME) {
 if(lastSteadyState == HIGH && currentState == LOW)
-digitalWrite(LED_BUILTIN, HIGH);
+digitalWrite(LED_BUILTIN, LOW);
 else if (lastSteadyState == LOW && currentState == HIGH)
-digitalWrite(LED_BUILTIN, LOW); 
+digitalWrite(LED_BUILTIN, HIGH); 
 lastSteadyState = currentState;
 }
 }
